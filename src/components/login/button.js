@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, ActivityIndicator, Text, TouchableOpacity} from 'react-native';
+import {buttonLogin} from './style';
 
 export default (props) => {
   return <TouchableOpacity
@@ -7,16 +8,7 @@ export default (props) => {
     disabled={props.waiting}
   >
     <View
-      style={
-        {
-          height: 80,
-          marginLeft: 10,
-          marginRight: 10,
-          backgroundColor: "grey",
-          justifyContent: "center",
-          alignItems: "center"
-        }
-      }
+      style={[buttonLogin.container, props.style]}
     >
       {props.waiting ? (
         <ActivityIndicator size="small" color="white" />

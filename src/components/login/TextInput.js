@@ -5,7 +5,7 @@ import { viewTextInput } from './style';
 import SvgIcon from './../common/svg-icon';
 
 export default (props) => {
-	return <View style={viewTextInput.container}>
+	return <View style={[props.style, viewTextInput.container]}>
 		<SvgIcon
 			path={props.path}
 			strokeWidth={2.5}
@@ -20,7 +20,7 @@ export default (props) => {
 			underlineColorAndroid={"transparent"}
 			returnKeyType={props.returnKeyType}
 			value={props.value}
-			ref = {input => {props.ref = input}}
+			ref = {props.refInput && props.refInput}
 			onChangeText={text => props.onChangeText && props.onChangeText(text)}
 			onSubmitEditing={() => { props.onSubmitEditing && props.onSubmitEditing() }}
 		/>
