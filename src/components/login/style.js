@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const viewTextInput =  StyleSheet.create({
     container: {
+      paddingLeft:10,
       height:50,
       flexDirection: 'row',
       justifyContent: 'flex-start',
