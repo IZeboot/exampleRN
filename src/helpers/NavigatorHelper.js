@@ -1,9 +1,9 @@
 import {StackActions} from 'react-navigation';
 
-export const PushStackActions = (props, routeName, params = {}) => {
+export const PushStackActions = (navigation, routeName, params = {}) => {
   const push = StackActions.push({
     routeName,
     params
   });
-  props.navigation.dispatch(push);
+  navigation.dispatch(push);
 }

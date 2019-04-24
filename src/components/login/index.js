@@ -25,6 +25,7 @@ import ButtonCustom from './ButtonLogin';
 import BackgroundImage from './Background';
 import {viewLogin} from './Style';
 import {PushStackActions} from '../../helpers/NavigatorHelper';
+import Actions from '../../Actions'
 
 class Login extends Component {
   constructor(props){
@@ -37,13 +38,12 @@ class Login extends Component {
   }
 
   onLogin(){
-    console.log("this.state.username", this.state.username)
-    console.log("this.state.password", this.state.password)
+    const {username, password} = this.state;
+    const {navigation} = this.props;
+    console.log("this.state.username", username)
+    console.log("this.state.password", password)
     this.setState({waiting: true})
-    setTimeout(() => {
-      this.setState({waiting: false})
-      PushStackActions(this.props, "Home")
-    }, 3*1000);
+    this.props.dispatch(Actions.login("",()=>{}, ()=>{}))
   }
 
   render() {

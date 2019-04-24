@@ -1,8 +1,8 @@
-import ActionTypes from './../constants/ActionsType';
+import actionTypes from '../Actions/ActionTypes';
 
 const initState = {
   userData: null,
-  users: 1,
+  user: {},
 }
 
 export const UserReducer = (state = initState, action) => {
@@ -10,8 +10,8 @@ export const UserReducer = (state = initState, action) => {
   const {type, data} = action
 
   switch (type) {
-      case ActionTypes.NEXT:
-          return Object.assign({}, state, {users: ++state.users})
+      case actionTypes.USER_SET_CURRENT_USER_DATA:
+          return Object.assign({}, ...state, {users: data})
       default:
           return state
   }
