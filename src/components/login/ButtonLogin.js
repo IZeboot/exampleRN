@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, ActivityIndicator, Text, TouchableOpacity} from 'react-native';
-import {buttonLogin} from './style';
+import {buttonLogin} from './Style';
 
 export default (props) => {
   return <TouchableOpacity
@@ -13,7 +13,7 @@ export default (props) => {
       {props.waiting ? (
         <ActivityIndicator size="small" color="white" />
       ) : (
-        <Text>
+        <Text style = {buttonLogin.text}>
           {"Sign in".toUpperCase()}
         </Text>
       )}

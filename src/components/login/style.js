@@ -7,23 +7,51 @@ export const viewTextInput =  StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      backgroundColor: 'rgba(0,0,0,0.3)',
-      borderBottomWidth:3,
-      borderBottomColor: 'rgba(255,255,255,0.5)',
+      borderBottomWidth:2,
+      borderBottomColor: 'rgba(0,0,0,0.5)',
     },
     textInput:{
-        flex:1,
-        marginLeft:10
+      flex:1,
+      marginLeft:10,
+      fontSize:18, 
+      fontWeight:"900"
     },
 });
 
 export const buttonLogin = StyleSheet.create({
   container: {
-    height: 80,
+    height: 60,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: "grey",
     justifyContent: "center",
     alignItems: "center"
+  },
+  text:{
+    fontSize:18, 
+    fontWeight:"900"
   }
 });
+
+export const viewLogin = StyleSheet.create({
+  container: {
+    flex:1, 
+    zIndex:1
+  },
+  body:{
+    justifyContent:"center", 
+    flex:1,
+    borderWidth:1,
+    borderColor:"red"
+  },
+  textInputUserName:{
+
+  },
+  textInputPassword:{
+    marginTop: 10
+  },
+  buttonLogin:{
+    marginTop: 10
+  }
+});
+

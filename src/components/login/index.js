@@ -18,13 +18,15 @@ import {
   TouchableWithoutFeedback,
   Image
 } from 'react-native';
+import {connect} from 'react-redux'
+import { userIcon, passIcon } from '../common/svg-icon';
+import TextInputCustom from './TextInputCustom';
+import ButtonCustom from './ButtonLogin';
+import BackgroundImage from './Background';
+import {viewLogin} from './Style';
+import {PushStackActions} from '../../helpers/NavigatorHelper';
 
-import { userIcon, passIcon } from './../common/svg-icon';
-import TextInput from './TextInput';
-import ButtonCustom from './button';
-import BackgroundImage from './background';
-
-export default class Login extends Component {
+class Login extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -40,24 +42,25 @@ export default class Login extends Component {
     this.setState({waiting: true})
     setTimeout(() => {
       this.setState({waiting: false})
+      PushStackActions(this.props, "Home")
     }, 3*1000);
   }
 
   render() {
     var state = this.state;
     return (
-      <View style = {{flex:1, zIndex:1}}>
+      <View style = {viewLogin.container}>
         <TouchableWithoutFeedback
-          style={{ justifyContent:"center", flex:1}}
           onPress={() => {
             Keyboard.dismiss();
           }}
           enabled
         >
-        <View style={{ justifyContent:"center", flex:1 }}>
+        <KeyboardAvoidingView behavior="padding" style={viewLogin.body}>
           <View>
-            <TextInput
+            <TextInputCustom
               path={userIcon}
+              placeholder = "Username"
               onChangeText = {username => this.setState({username})}
               returnKeyType = "next"
               value = {state.username}
@@ -66,8 +69,9 @@ export default class Login extends Component {
                 this.passwordInput.focus();
               }}
             />
-            <TextInput
-              style={{marginTop: 10}}
+            <TextInputCustom
+              placeholder = "Password"
+              style={viewLogin.textInputPassword}
               path={passIcon} x={5}
               secureTextEntry={true}
               autoCorrect={true}
@@ -79,17 +83,19 @@ export default class Login extends Component {
             />
           </View>
           <ButtonCustom
-            style = {{marginTop: 10}}
+            style = {viewLogin.buttonLogin}
             onPress = {()=>this.onLogin()}
             waiting = {state.waiting}
           />
-          </View>
+          </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
         <BackgroundImage/>
       </View>
     );
   }
 }
+
+export default connect()(Login)
 
 const styles = StyleSheet.create({
   container: {

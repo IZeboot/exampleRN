@@ -3,6 +3,7 @@ package com.example;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.keychain.KeychainPackage;
 import com.horcrux.svg.SvgPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGestureHandlerPackage(),
             new KeychainPackage(),
             new SvgPackage(),
             new RNI18nPackage()
