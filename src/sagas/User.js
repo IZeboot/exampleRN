@@ -10,20 +10,20 @@ function* login(action){
     "Email": "2@gmail.com", 
     "Password": "c4ca4238a0b923820dcc509a6f75849b",
   }
-  console.log(1, data)
+
   try {
-    const response = yield call(User.login, data, onSucces, onFail)
-    console.log(response)
-    // yield put(Actions.login())
-  } catch (error) {
+    const response = yield call(User.login, data);
+    if(response){
+      yield put(Actions.setCurrentUser(response.data[0]))
+    }
+    console.log(response.data[0])
     
+  } catch (error) {
+    console.log("SagaUserError",error)
   }
 }
-function* loginSaga () {
-  yield takeEvery(ActionTypes.SAGA_USER_LOGIN, login)
-}
 
-export default [
-  fork(loginSaga)
-]
+export default function* sagaUser(){
+  yield takeEvery(ActionTypes.SAGA_USER_LOGIN, login);
+}
 

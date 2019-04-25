@@ -1,4 +1,4 @@
-const ApiLink = "http://fanxt.com/esports/api";
+export const ApiLink = "http://fanxt.com/esports/api";
 const APIconfig = {
   login:{
     "Action-Req": "Login-Req",

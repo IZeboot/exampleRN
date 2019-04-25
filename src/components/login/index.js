@@ -25,7 +25,8 @@ import ButtonCustom from './ButtonLogin';
 import BackgroundImage from './Background';
 import {viewLogin} from './Style';
 import {PushStackActions} from '../../helpers/NavigatorHelper';
-import Actions from '../../Actions'
+import Actions from '../../Actions';
+import ModelUser from './../../models/User';
 
 class Login extends Component {
   constructor(props){
@@ -35,15 +36,15 @@ class Login extends Component {
       password: "",
       waiting: false
     }
+    const {navigation} = this.props;
+    ModelUser.listenChangeScreen(navigation);
   }
 
-  onLogin(){
+  onLogin = () =>{
     const {username, password} = this.state;
     const {navigation} = this.props;
-    console.log("this.state.username", username)
-    console.log("this.state.password", password)
     this.setState({waiting: true})
-    this.props.dispatch(Actions.login("",()=>{}, ()=>{}))
+    this.props.dispatch(Actions.login("1234",()=>{}, ()=>{}))
   }
 
   render() {
