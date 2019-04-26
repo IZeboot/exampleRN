@@ -4,9 +4,8 @@ const addCommonHeader = (authorization) => {
 };
 
 class HttpHelpers {
-  static post = async (url, params, onSuccess, onFail, authorization = false) =>{
+  static post = async (url, params, authorization = false) =>{
     params._t = new Date().getTime();
-    console.log(params, url)
     addCommonHeader(authorization)
     return await axios.post(url, params)
   };

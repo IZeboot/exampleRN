@@ -1,5 +1,5 @@
-import Actions from './../Actions';
-import ActionTypes from './../Actions/ActionTypes';
+import Actions from '../actions';
+import ActionTypes from '../actions/ActionTypes';
 import {call, put, takeEvery, fork} from 'redux-saga/effects';
 import User from '../models/User';
 

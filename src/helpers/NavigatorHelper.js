@@ -1,9 +1,9 @@
 import {StackActions, NavigationActions} from 'react-navigation';
-class ModelRouter{
-  // data = "",
-  constructor()
-}
-const PushStackActions = (navigation, routeName, params = {}) => {
+
+const PushStackActions = (navigation, routeName = "", params = {}) => {
+  if(!routeName){
+    return;
+  }
   const push = StackActions.push({
     routeName,
     params
@@ -11,16 +11,39 @@ const PushStackActions = (navigation, routeName, params = {}) => {
   navigation.dispatch(push);
 }
 
-const ResetStackActions = (navigation, routeNames = [], params = {}) =>{
-  const resetAction = StackActions.reset({
-    index: 0,
-    actions: [NavigationActions.navigate({ routeName: 'Profile' })],
+// navigationNavigateActions is an array 
+// [
+//   {
+//     routeName: string;
+//     params?: NavigationParams;
+//     action?: NavigationNavigateAction;
+//     key?: string;
+//   }
+// ]
+
+const ResetStackActions = (navigation, index = 0, navigationNavigateActions = []) =>{
+  if(navigationNavigateActions === [] ){
+    return;
+  }
+  
+  let arrayNavigationActions = [];
+
+  navigationNavigateActions.forEach(element => {
+    arrayNavigationActions.push(NavigationActions.navigate({element}));
   });
+
+  if(navigationNavigateActions.length !==  arrayNavigationActions.length){
+    return;
+  }
+
+  const resetAction = StackActions.reset({
+    index,
+    actions: arrayNavigationActions
+  })
   navigation.dispatch(resetAction);
 }
 
 export default {
   PushStackActions,
   ResetStackActions,
-  ModelRouter
 }

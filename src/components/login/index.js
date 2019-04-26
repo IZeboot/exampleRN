@@ -25,7 +25,7 @@ import ButtonCustom from './ButtonLogin';
 import BackgroundImage from './Background';
 import {viewLogin} from './Style';
 import {PushStackActions} from '../../helpers/NavigatorHelper';
-import Actions from '../../Actions';
+import Actions from '../../actions';
 import ModelUser from './../../models/User';
 
 class Login extends Component {

@@ -7,7 +7,7 @@ export default class Home extends Component{
   }
   render(){
     return(
-      <View style = {{backgroundColor: 'red', flex:1}}>
+      <View style = {{backgroundColor: 'red', flex:1, justifyContent:"center", }}>
         <Text>123</Text>
       </View>
     )
