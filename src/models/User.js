@@ -10,7 +10,7 @@ class User {
 
   static listenChangeScreen = (navigation) => {
     function selectData(state) {
-      return state.user.user;
+      return state.user.profile;
     }
     
     let currentValue
@@ -19,8 +19,7 @@ class User {
       currentValue = selectData(Store.getState())
     
       if (previousValue !== currentValue && previousValue) {
-        console.log("previousValue", previousValue,"currentValue",currentValue)
-        NavigationAction.PushStackActions(navigation, "Home")
+        NavigationAction.ResetStackActions(navigation, 0, [{routeName:"Home"}])
       }
     }
     

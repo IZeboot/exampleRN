@@ -16,7 +16,8 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Image
+  Image,
+  SafeAreaView
 } from 'react-native';
 import {connect} from 'react-redux'
 import { userIcon, passIcon } from '../common/svg-icon';
@@ -40,17 +41,23 @@ class Login extends Component {
     ModelUser.listenChangeScreen(navigation);
   }
 
+  static navigationOptions = {
+    header: null
+  }
+
   onLogin = () =>{
     const {username, password} = this.state;
-    const {navigation} = this.props;
-    this.setState({waiting: true})
-    this.props.dispatch(Actions.login("1234",()=>{}, ()=>{}))
+    const {navigation, dispatch} = this.props;
+    this.setState({waiting: true});
+    dispatch(Actions.login("1234",()=>{}, ()=>{}));
   }
+
+
 
   render() {
     var state = this.state;
     return (
-      <View style = {viewLogin.container}>
+      <SafeAreaView style = {viewLogin.container}>
         <TouchableWithoutFeedback
           onPress={() => {
             Keyboard.dismiss();
@@ -91,7 +98,7 @@ class Login extends Component {
           </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
         <BackgroundImage/>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -104,15 +111,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });

@@ -41,8 +41,6 @@ export const viewLogin = StyleSheet.create({
   body:{
     justifyContent:"center", 
     flex:1,
-    borderWidth:1,
-    borderColor:"red"
   },
   textInputUserName:{
 

@@ -29,13 +29,12 @@ const ResetStackActions = (navigation, index = 0, navigationNavigateActions = []
   let arrayNavigationActions = [];
 
   navigationNavigateActions.forEach(element => {
-    arrayNavigationActions.push(NavigationActions.navigate({element}));
+    arrayNavigationActions.push(NavigationActions.navigate({...element}));
   });
 
   if(navigationNavigateActions.length !==  arrayNavigationActions.length){
     return;
   }
-
   const resetAction = StackActions.reset({
     index,
     actions: arrayNavigationActions

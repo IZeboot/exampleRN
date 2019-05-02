@@ -1,13 +1,6 @@
 import React from 'react'
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import {Animated, Easing} from 'react-native';
-import Login from '../components/login';
-import Home from './../components/home';
-
-const configScreen =  {
-  Login: {screen: Login},
-  Home: {screen: Home},
-}
 
 const screenInterpolator = sceneProps => {
   const { layout, position, scene } = sceneProps;
@@ -38,9 +31,10 @@ const screenInterpolator = sceneProps => {
   
   switch (routeName) {
     case "Home":
-      return { opacity, transform: [{ translateX }, { translateY }, { scale }]};
-    default:
       return { opacity, transform: [{ translateX }]};
+      // return { opacity, transform: [{ translateX }, { translateY }, { scale }]};
+    default:
+      return {opacity};
   }
 }
 
@@ -49,12 +43,21 @@ const ApplicationRouter = createStackNavigator(
   {
     // Default config for all screens
     initialRouteName: 'Login',
-    headerMode:"none",
+    headerMode:"screen",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "blue",
+        borderBottomWidth: 0,
+        shadowColor: 'transparent',
+      },
+      headerTintColor: 'white',
+    },
     transitionConfig: () => ({
       transitionSpec: {
-        duration: 1000,
+        duration: 300,
         easing: Easing.out(Easing.poly(4)),
         timing: Animated.timing,
+        useNativeDriver: true
       },
       screenInterpolator: sceneProps=>screenInterpolator(sceneProps)
     })
