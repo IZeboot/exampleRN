@@ -21,7 +21,7 @@ const PushStackActions = (navigation, routeName = "", params = {}) => {
 //   }
 // ]
 
-const ResetStackActions = (navigation, index = 0, navigationNavigateActions = []) =>{
+const ResetStackActions = (navigation, index = 0, navigationNavigateActions = [{routeName:'', params:undefined}]) =>{
   if(navigationNavigateActions === [] ){
     return;
   }

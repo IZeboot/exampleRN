@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Platform,
   StyleSheet,
-  Text,
   View,
   Keyboard,
-  ImageBackground,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Image,
   SafeAreaView
 } from 'react-native';
 import {connect} from 'react-redux'
@@ -17,11 +13,11 @@ import TextInputCustom from './TextInputCustom';
 import ButtonCustom from './ButtonLogin';
 import BackgroundImage from './Background';
 import {viewLogin} from './Style';
-import {PushStackActions} from '../../helpers/NavigatorHelper';
 import Actions from '../../actions';
 import ModelUser from './../../models/User';
+import BaseView from './../common/BaseView';
 
-class Login extends Component {
+class Login extends BaseView {
   constructor(props){
     super(props);
     this.state = {
@@ -55,7 +51,7 @@ class Login extends Component {
         <KeyboardAvoidingView behavior="padding" style={viewLogin.body}>
           <View>
             <TextInputCustom
-              path={userIcon}
+              nameIcon={"person-outline"}
               placeholder = "Username"
               onChangeText = {username => this.setState({username})}
               returnKeyType = "next"
@@ -68,7 +64,7 @@ class Login extends Component {
             <TextInputCustom
               placeholder = "Password"
               style={viewLogin.textInputPassword}
-              path={passIcon} x={5}
+              nameIcon={"lock-outline"}
               secureTextEntry={true}
               autoCorrect={true}
               value = {state.password}
@@ -81,11 +77,11 @@ class Login extends Component {
           <ButtonCustom
             style = {viewLogin.buttonLogin}
             onPress = {this.onLogin}
-            waiting = {state.waiting}
           />
           </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
         <BackgroundImage/>
+        {state.waiting&&this.renderActivityIndicator()}
       </SafeAreaView>
     );
   }

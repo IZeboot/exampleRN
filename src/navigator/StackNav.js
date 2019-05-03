@@ -20,8 +20,8 @@ export default {
           onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
           style = { {paddingRight: 10, paddingLeft: 10} }
         >
-        <Icon name="menu" size={30} />
-      </TouchableOpacity>
+          <Icon name="menu" size={30} />
+        </TouchableOpacity>
       ),
     }),
     screen: configDrawerNav,

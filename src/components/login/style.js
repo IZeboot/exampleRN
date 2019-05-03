@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 export const viewTextInput =  StyleSheet.create({
     container: {
@@ -10,11 +10,18 @@ export const viewTextInput =  StyleSheet.create({
       borderBottomWidth:2,
       borderBottomColor: 'rgba(0,0,0,0.5)',
     },
-    textInput:{
+    textInput: Platform.OS === 'ios' ? {
       flex:1,
       marginLeft:10,
       fontSize:18, 
       fontWeight:"900"
+    }:{
+      flex:1,
+      paddingBottom: 8,
+      paddingTop: 5,
+      marginLeft:10,
+      fontSize:18, 
+      fontWeight:"900",
     },
 });
 

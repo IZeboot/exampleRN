@@ -1,20 +1,16 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import NavigationAction from "../../helpers/NavigatorHelper";
+import BaseView from './../common/BaseView';
 
-export default class Home extends Component{
+export default class Home extends BaseView{
   constructor(props){
     super(props)
-  }
-
-  onPress = () =>{
-    NavigationAction.PushStackActions(this.props.navigation, "Profile")
   }
 
   render(){
     return(
       <View style = {{backgroundColor: 'red', flex:1, justifyContent:"center"}}>
-        <TouchableOpacity onPress = {this.onPress}>
+        <TouchableOpacity onPress = {()=> this.goTo("Profile")}>
           <Text>123</Text>
         </TouchableOpacity>
       </View>
