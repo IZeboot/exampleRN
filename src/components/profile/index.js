@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 export default class Child extends Component{
   constructor(props){
@@ -8,7 +8,11 @@ export default class Child extends Component{
   render(){
     return(
       <View style = {{backgroundColor: 'yellow', flex:1, justifyContent:"center", }}>
-        <Text>234</Text>
+        <TouchableOpacity
+          onPress = {()=>{}}
+        >
+          <Text>234</Text> 
+        </TouchableOpacity>
       </View>
     )
   }
