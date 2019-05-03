@@ -14,7 +14,8 @@ function* login(action){
   try {
     const response = yield call(User.login, data);
     if(response){
-      yield put(Actions.setCurrentUser(response.data[0]))
+      // yield put(Actions.setCurrentUser(response.data[0]))
+      yield put(Actions.setCurrentUser(response))
     }
     console.log(response.data[0])
     

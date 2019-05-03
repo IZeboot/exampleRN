@@ -3,8 +3,10 @@ import APIconfig, {ApiLink} from '../helpers/APIconfig';
 import Store from './../store';
 import NavigationAction from './../helpers/NavigatorHelper';
 let subscribeChangeUserStore
+const delay = ms => new Promise((resolve) => setTimeout(resolve, ms));
 class User {
   static login = async (data) =>{
+    return await delay(1000).then(()=>({a:1,b:2}))
     return await HttpHelper.post(ApiLink, {...APIconfig.login, ...data});
   }
 

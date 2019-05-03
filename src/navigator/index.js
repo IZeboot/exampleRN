@@ -1,6 +1,7 @@
 import React from 'react'
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import {Animated, Easing} from 'react-native';
+import configScreen from './StackNav';
 
 const screenInterpolator = sceneProps => {
   const { layout, position, scene } = sceneProps;

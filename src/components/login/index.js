@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -39,10 +31,6 @@ class Login extends Component {
     }
     const {navigation} = this.props;
     ModelUser.listenChangeScreen(navigation);
-  }
-
-  static navigationOptions = {
-    header: null
   }
 
   onLogin = () =>{
@@ -86,13 +74,13 @@ class Login extends Component {
               value = {state.password}
               onChangeText = {password => this.setState({password})}
               refInput={input => (this.passwordInput = input)}
-              onSubmitEditing={() => this.onLogin()}
+              onSubmitEditing={this.onLogin}
               returnKeyType = "go"
             />
           </View>
           <ButtonCustom
             style = {viewLogin.buttonLogin}
-            onPress = {()=>this.onLogin()}
+            onPress = {this.onLogin}
             waiting = {state.waiting}
           />
           </KeyboardAvoidingView>

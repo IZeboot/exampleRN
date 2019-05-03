@@ -13,10 +13,10 @@ export default class Home extends Component{
 
   render(){
     return(
-      <View style = {{backgroundColor: 'red', flex:1, justifyContent:"center", }}>
-      <TouchableOpacity onPress = {this.onPress}>
-        <Text>123</Text>
-      </TouchableOpacity>
+      <View style = {{backgroundColor: 'red', flex:1, justifyContent:"center"}}>
+        <TouchableOpacity onPress = {this.onPress}>
+          <Text>123</Text>
+        </TouchableOpacity>
       </View>
     )
   }
