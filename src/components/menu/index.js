@@ -1,35 +1,32 @@
 import React, {Component} from 'react';
-import {View, FlatList, Text, StyleSheet} from 'react-native';
+import {View, FlatList, Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { DrawerActions } from 'react-navigation-drawer';
+import styles from './styles';
 
 class sideMenu extends Component {
   constructor(props){
     super(props)
     this.data = [
       {
-        title:"1"
+        title:"Main",
+        icon:"home"
       },
       {
-        title:"2"
+        title:"Profile",
+        icon:"person"
       },
       {
-        title:"3"
-      },
-      {
-        title:"4"
-      },
-      {
-        title:"5"
-      },
-      {
-        title:"6"
-      },
-      {
-        title:"7"
-      },
-      {
-        title:"8"
+        title:"Settings",
+        icon:"settings"
       },
     ]
+  }
+
+  goToScreen = (title) =>{
+    const {navigation} = this.props;
+    navigation.dispatch(DrawerActions.closeDrawer())
+    navigation.navigate(title)
   }
 
   render(){
@@ -37,26 +34,21 @@ class sideMenu extends Component {
       <View style = {styles.container}>
         <FlatList
           data = {this.data}
-          renderItem = {(item)=>(
-            <View style = {styles.itemContainer}>
-              <Text>{item.item.title}</Text>
-            </View>
-          )}
-          numColumns = {3}
+          renderItem = {(element)=>{
+            const {title, icon} = element.item;
+            return (
+              <TouchableOpacity style = {styles.itemContainer} onPress = {() => this.goToScreen(title)}>
+                <Icon size = {30} name = {icon}/>
+                <Text>{title}</Text>
+              </TouchableOpacity>
+            );
+          }}
+          // numColumns = {3}
           keyExtractor = {(item, index)=>index}
         />
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  container:{
-    flex:1
-  },
-  itemContainer:{
-    flex:1,
-    flexDirection: 'column'
-  }
-})
 
 export default sideMenu;

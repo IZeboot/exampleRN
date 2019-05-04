@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import BaseView from './../common/BaseView';
+import styles from './styles';
 
 export default class Home extends BaseView{
   constructor(props){
@@ -9,9 +10,12 @@ export default class Home extends BaseView{
 
   render(){
     return(
-      <View style = {{backgroundColor: 'red', flex:1, justifyContent:"center"}}>
-        <TouchableOpacity onPress = {()=> this.goTo("Profile")}>
-          <Text>123</Text>
+      <View style = {styles.container}>
+        <TouchableOpacity 
+          onPress = {()=> this.goTo("Profile")}
+          style = {styles.touchable}
+        >
+          <Text>Profile</Text>
         </TouchableOpacity>
       </View>
     )

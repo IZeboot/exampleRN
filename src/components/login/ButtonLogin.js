@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, ActivityIndicator, Text, TouchableOpacity} from 'react-native';
-import {buttonLogin} from './Style';
+import {buttonLogin} from './styles';
 
 export default (props) => {
   return <TouchableOpacity

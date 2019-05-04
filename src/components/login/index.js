@@ -12,7 +12,7 @@ import { userIcon, passIcon } from '../common/svg-icon';
 import TextInputCustom from './TextInputCustom';
 import ButtonCustom from './ButtonLogin';
 import BackgroundImage from './Background';
-import {viewLogin} from './Style';
+import {viewLogin} from './styles';
 import Actions from '../../actions';
 import ModelUser from './../../models/User';
 import BaseView from './../common/BaseView';

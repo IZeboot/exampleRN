@@ -6,7 +6,6 @@ const initState = {
 }
 
 export const UserReducer = (state = initState, action) => {
-
   const { type, data } = action
   switch (type) {
     case actionTypes.USER_SET_CURRENT_USER_DATA:
