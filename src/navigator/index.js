@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Platform} from 'react-native';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import {Animated, Easing} from 'react-native';
 import configScreen from './StackNav';
@@ -43,8 +44,10 @@ const ApplicationRouter = createStackNavigator(
     configScreen,
   {
     // Default config for all screens
-    initialRouteName: 'Login',
+    initialRouteName: 'Home',
     headerMode:"screen",
+    header: { visible: false },
+    mode: Platform.OS === 'ios' ? 'modal' : 'card',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "blue",

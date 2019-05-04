@@ -7,6 +7,10 @@ class Settings extends Component {
     super(props)
   }
 
+  static navigationOptions = {
+    title: 'Settings',
+  };
+
   render(){
     return(
       <View style = {styles.container}>
