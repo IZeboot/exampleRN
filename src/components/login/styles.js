@@ -14,7 +14,8 @@ export const viewTextInput =  StyleSheet.create({
       flex:1,
       marginLeft:10,
       fontSize:18, 
-      fontWeight:"900"
+      fontWeight:"900",
+      fontFamily: "Montserrat-Medium"
     }:{
       flex:1,
       paddingBottom: 8,
@@ -22,6 +23,7 @@ export const viewTextInput =  StyleSheet.create({
       marginLeft:10,
       fontSize:18, 
       fontWeight:"900",
+      fontFamily: "Montserrat-Medium"
     },
 });
 
@@ -36,7 +38,7 @@ export const buttonLogin = StyleSheet.create({
   },
   text:{
     fontSize:18, 
-    fontWeight:"900"
+    fontFamily: "Montserrat-Bold"
   }
 });
 
