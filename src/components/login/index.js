@@ -11,7 +11,6 @@ import {connect} from 'react-redux'
 import { userIcon, passIcon } from '../common/svg-icon';
 import TextInputCustom from './TextInputCustom';
 import ButtonCustom from './ButtonLogin';
-import BackgroundImage from './Background';
 import {viewLogin} from './styles';
 import Actions from '../../actions';
 import ModelUser from './../../models/User';
@@ -80,7 +79,6 @@ class Login extends BaseView {
           />
           </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
-        <BackgroundImage/>
         {state.waiting&&this.renderActivityIndicator()}
       </SafeAreaView>
     );
