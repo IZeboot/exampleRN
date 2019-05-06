@@ -7,12 +7,12 @@ CocoaPods is a package management tool for iOS and macOS development. We use it 
 
 ## Install Package and In Project ( Hataraclub_app):
   ### 1.install package
-  yarn install / npm install 
+    yarn install / npm install 
 
   ### 2.If using macOS development then install the React Native [pod](https://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies) (in directory Hataraclub_app/ios)
 
-  cd ios
-  pod install
+    cd ios
+    pod install
 
       
 
