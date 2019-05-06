@@ -2,7 +2,7 @@
 ## Install [CocoaPods ](https://cocoapods.org/)
 CocoaPods is a package management tool for iOS and macOS development. We use it to add the actual React Native framework code locally into your current project.
 * We recommend installing CocoaPods using [Homebrew](https://brew.sh/):
-    brew install cocoapods
+  $ brew install cocoapods
 
 * In Project Directory:
     yarn install / npm install 
